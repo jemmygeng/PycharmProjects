@@ -1,6 +1,6 @@
 from urllib import request
 '''
-使用srllib。reequest请求一个网页，并且把内容打印出来
+使用urllib。request请求一个网页，并且把内容打印出来
 '''
 if __name__ == '__main__':
     url = "http://jobs.zhaopin.com/CC444965518J00189517908.htm"
