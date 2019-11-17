@@ -1,3 +1,9 @@
+# 2. urllib
+- 包含模块
+    - urllib.request: 打开和读取urls
+    - urllib.error: 包含urllib.request产生的常见错误，使用try捕捉
+    - urllib.parse: 包含解析url的方法
+    - urllib.robotparse: 解析robots.txt文件
 - 网页编码问题解决
     - chardet 可以自动检测页面文件的编码格式，但是 可能有误
     - 需要安装，conda install chardet
@@ -22,5 +28,17 @@
                 - Content-Type:application/x-www.form-urlencode
                 - Content-Length: 数据长度
                 - 简而言之 一旦更改请求方法，请注意其他请求头部信息相适应
-            - urllib.parase.urlencode可以将字符串自动转换成上面的
+            - urllib.parse.urlencode可以将字符串自动转换成上面的
             - 案例5
+            - 为了更多的设置请求信息，单纯的通过urlopen函数已经不大好用了
+            - 需要利用request.Request 类
+            - 案例v6
+- urllib.error
+    - URLError产生的原因：
+        - 没网
+        - 服务器链接失败
+        - 知不道指定服务器
+        - 是OSError的子类
+        - 案例V7
+    - HTTPError, 是URLError的一个子类
+        - 案例V8
