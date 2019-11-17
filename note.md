@@ -107,12 +107,12 @@
             - 利用提取的cookie登录隐私页面
     - handler是Handler的实例 常用的参考示例代码
        - 用来处理复杂请求
-            # 生成cookie的管理器
-            cookie_ha ndler = request.HTTPCookieProcessor(cookie)
-            # 创建http请求管理器
-            http_handler = request.HTTPHandler()
-            # 生成https管理器
-            https_handler = request.HTTPSHandler()
+            - 生成cookie的管理器
+               cookie_ha ndler = request.HTTPCookieProcessor(cookie)
+            -  创建http请求管理器
+               http_handler = request.HTTPHandler()
+            - 生成https管理器
+               https_handler = request.HTTPSHandler()
     - 创建handler后使用opener打开，打开后相应的业务由相应的handler处理
     - cookie作为一个变量，打印出来 案例v14
         - cookie 的属性
