@@ -82,6 +82,51 @@
     - cookie不安全
     - session 会保存在服务器上一定时间，会过期
     - 单个cookie保存数据不超过4k,很多浏览器限制一个网站最多保存20个
+- session 的存放位置
+    - 存在服务器端
+    - 一般情况，session是放在内存中或者数据库中
+    - 没有cookie登陆 案例v11 可以看到，没有cookie则反馈网
+- 使用cookie登陆
+    - 直接把cookie 复制下来，然后手动放入请求头，案例V12
+    - http模块包含一些关于cookie的模块，通过他们 我们可以自动使用cookie
+        - CookieJar
+            - 管理存储cookie,向传出的http请求添加cookie,
+            - cookie存储在内存中，CookieJar实例回收后cookie将消失
+        - FileCookieJar（filename, delayload=None, policy=None）
+            - 使用文件管理cookie
+            - filename是保存cookie的文件
+        - MozillaCookieJar（filename, delayload=None, policy=None）
+            - 创建与mocilla浏览器cookie,txt兼容的FileCookieJar实例’
+        - LwpCookieJar（filename, delayload=None, policy=None）
+            - 创建与libww-perl标准兼容的Set-Cookie3格式的FileCookieJar实例
+        - 它们的关系是：CookieJar-->FileCookieJar-->MozillaCookieJar & LwpCookieJar
+    - 利用cookieJar访问人人网 案例v13
+        - 自动使用cookie登录，大概流程是：
+            - 打开登录页面后自动通过用户名密码登录
+            - 自动提取反馈回来的cookie
+            - 利用提取的cookie登录隐私页面
+    - handler是Handler的实例 常用的参考示例代码
+       - 用来处理复杂请求
+            # 生成cookie的管理器
+            cookie_ha ndler = request.HTTPCookieProcessor(cookie)
+            # 创建http请求管理器
+            http_handler = request.HTTPHandler()
+            # 生成https管理器
+            https_handler = request.HTTPSHandler()
+    - 创建handler后使用opener打开，打开后相应的业务由相应的handler处理
+    - cookie作为一个变量，打印出来 案例v14
+        - cookie 的属性
+            - name: 名称
+            - value: 常见的UA值
+            - domain: 可以访问此cookie的域名
+            - path: 可以访问此cookie的页面路径
+            - expires: 过期时间
+            - size: 大小
+            - Http字段
+
+    - cookie 的保存- FileCookieJar 案例v15
+
+
 
 
 
