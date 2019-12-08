@@ -108,7 +108,7 @@
     - handler是Handler的实例 常用的参考示例代码
        - 用来处理复杂请求
             - 生成cookie的管理器
-               cookie_ha ndler = request.HTTPCookieProcessor(cookie)
+               cookie_handler = request.HTTPCookieProcessor(cookie)
             -  创建http请求管理器
                http_handler = request.HTTPHandler()
             - 生成https管理器
@@ -125,6 +125,43 @@
             - Http字段
 
     - cookie 的保存- FileCookieJar 案例v15
+    - cookie 的读取，案例v16
+- SSL
+    - SSL证书就是指遵守SSL安全套阶层协议的服务器数字证书（SercureSocketLayer）
+    - 美国网景公司开发
+    - CA(CertifacateAuthority)是数字证书认证中心，是发放，管理，废除数字证书的收信人的第三方机构
+    - 遇到不信任的SSL证书，需要单独处理 案例V17
+- js加密
+    - 有的反爬虫策略采用了js对需要传输的数据进行加密处理（通常是取MD5值）
+    - 经过加密，传输的就是密文，但是
+    - 加密函数或者过程一定是在浏览器完成，也即是一定会把代码（js代码）暴露给使用者
+    - 通过阅读加密算法，就可以模拟出加密过程，从而达到破解
+    - 过程参见案例v18 ,v19
+- ajax
+    - 异步请求
+    - 一定会有url，请求方法，可能有数据
+    - 一般用json格式
+    - 案例，爬取豆瓣电影，案例V20
+# Requests- 献给人类
+- HTTP for Humans,更简洁 更友好
+- 继承了urllib的所有特征
+- 底层使用的是urllib3
+- 开源地址：https://github.com/request/requests
+- 中文文档：http://docs.python-requests.org/zh_CN/lastest/index.html
+- 安装：conda install request
+- get请求
+    - requests.get(url)
+    - requests.request("v22get",url)
+    - 可以带有headers和parmas参数
+    - 案例v21
+- get返回内容
+    - 案例v22
+- post
+    - rsp = request.post(url,data=data)
+    - 案例23
+    - data,headers 要求dict类型
+
+
 
 
 
